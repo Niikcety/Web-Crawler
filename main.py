@@ -14,9 +14,12 @@ def crawl(link="https://register.start.bg/"):
         return []
     soup = BeautifulSoup(r.text, features="html.parser")
     for row in soup.find_all('a'):
-        link = row.get('href')
-        if link is not None and link[0:4] == 'http':
-            raw_links.append(link)
+        link_row = row.get('href')
+        if link_row is not None:
+            if link_row[0:4] == 'http':
+                raw_links.append(link)
+            elif link_row[0:4] == 'link':
+                raw_links.append(link + link_row)
     return raw_links
 
 
