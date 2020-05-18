@@ -21,12 +21,13 @@ def crawl(link="https://hackbulgaria.com/"):
 
 
 def traverse_through_links(links):
+    visited = []
     for link in links:
-        links += crawl(link)
+        if link not in visited:
+            visited.append(link)
+            links += crawl(link)
     return links
 
 
 if __name__ == '__main__':
-    # for link in valid:
-    #     valid_links += parse_crawled(crawl(link))
-    all_links = traverse_through_links(crawl('https://register.start.bg/'))
+    all_links = traverse_through_links(crawl())
