@@ -1,9 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from db import Base, session, VisitedLinks, NotVisitedLinks
-
-
-
+from db import session, VisitedLinks, NotVisitedLinks
 
 
 def crawl(link="https://register.start.bg/"):
