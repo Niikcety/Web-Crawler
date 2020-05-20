@@ -7,7 +7,7 @@ Base = declarative_base()
 
 
 class Links(Base):
-    __tablename__ = "urls"
+    __tablename__ = "visited"
     id = Column(Integer, primary_key=True)
     name = Column(String)
     server_type = Column(String)

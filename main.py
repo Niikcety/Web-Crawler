@@ -10,14 +10,14 @@ def crawl(link="https://register.start.bg/"):
     raw_links = []
     try:
         r = requests.get(link, timeout=5)
-    except requests.exceptions.ReadTimeout:
+    except Exception:
         return []
     soup = BeautifulSoup(r.text, features="html.parser")
     for row in soup.find_all('a'):
         link_row = row.get('href')
         if link_row is not None:
             if link_row[0:4] == 'http':
-                raw_links.append(link)
+                print(link_row)
             elif link_row[0:4] == 'link':
                 raw_links.append(link + link_row)
     return raw_links
