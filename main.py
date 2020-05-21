@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 from db.db import session_scope, VisitedLinks, NotVisitedLinks, engine, UPDATE_ALL
 import datetime
 import time
-import ipdb
 
 
 def crawl(link="https://register.start.bg/"):
