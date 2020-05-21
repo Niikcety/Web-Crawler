@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, DateTime
 from db.Base import Base
 
 
-class VisitedLinks(Base):
+class VisitedLinksModel(Base):
     __tablename__ = "visited"
     id = Column(Integer, primary_key=True)
     name = Column(String)

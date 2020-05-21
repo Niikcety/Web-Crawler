@@ -1,8 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from contextlib import contextmanager
-from VisitedLinks.VisitedLinksModel import VisitedLinks
-from NotVisitedLinks.NotVisitedLinksModel import NotVisitedLinks
+from VisitedLinks.model import VisitedLinksModel
+from NotVisitedLinks.model import NotVisitedLinksModel
 from .Base import Base
 
 
