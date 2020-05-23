@@ -10,7 +10,7 @@ class ApplicationController():
         self.visited = VisitedLinksController()
         self.nvisited = NotVisitedLinksController()
 
-    def start(self):
+    def crawl(self):
         check_if_empty = self.visited.return_size() + self.nvisited.return_size()
         if check_if_empty is 0:
             start_site = input('Please enter the name of the site you want to start with: ')

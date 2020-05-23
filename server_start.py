@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from Statistics.statistics_utils import get_by_server_type
+from Statistics.statistics_utils import get_api
 
 app = Flask(__name__, template_folder='FlaskServer/templates')
 app.static_folder = 'FlaskServer/static'
@@ -7,7 +7,7 @@ app.static_folder = 'FlaskServer/static'
 
 @app.route('/api')
 def hi():
-    return get_by_server_type()
+    return get_api()
 
 
 @app.route('/home')

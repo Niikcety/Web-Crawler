@@ -22,7 +22,7 @@ def get_by_server_type():
     with session_scope() as session:
         records = session.query(VisitedLinksModel.server_type, func.count(VisitedLinksModel.server_type)).group_by(
                                 VisitedLinksModel.server_type).all()
-    return json.dumps(server_type_simplifier(records))
+    return server_type_simplifier(records)
 
 
 def get_by_server_type_time(year=0, month=0, day=0, hour=0, minute=0, second=0):
@@ -32,4 +32,22 @@ def get_by_server_type_time(year=0, month=0, day=0, hour=0, minute=0, second=0):
         records = session.query(VisitedLinksModel.server_type, func.count(VisitedLinksModel.server_type)).filter(
                                 VisitedLinksModel.saved > start).filter(VisitedLinksModel.saved < now).group_by(
                                 VisitedLinksModel.server_type).all()
-    return json.dumps(server_type_simplifier(records))
+    return server_type_simplifier(records)
+
+
+def get_api():
+    """
+        JSON that returns the servers in the last:
+        - year
+        - month
+        - day
+        - hour
+        - all
+    """
+    records = dict()
+    records['all'] = get_by_server_type()
+    records['year'] = get_by_server_type_time(year=1)
+    records['month'] = get_by_server_type_time(month=1)
+    records['day'] = get_by_server_type_time(day=1)
+    records['hour'] = get_by_server_type_time(hour=1)
+    return json.dumps(records)
