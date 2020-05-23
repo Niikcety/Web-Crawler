@@ -5,7 +5,7 @@ from VisitedLinks.utils import get_server_type
 from VisitedLinks.model import VisitedLinksModel
 
 
-class Application():
+class ApplicationController():
     def __init__(self):
         self.visited = VisitedLinksController()
         self.nvisited = NotVisitedLinksController()

@@ -10,4 +10,3 @@ class VisitedLinksController:
 
     def return_size(self):
         return self.gateway.size()
-

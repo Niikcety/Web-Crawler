@@ -27,3 +27,5 @@ def session_scope():
 Base.metadata.create_all(engine)
 
 UPDATE_ALL = """UPDATE not_visited SET taken = True WHERE id >= (?) AND id <= (?);"""
+GET_ALL_SERVER_TYPES_BY_TIME_INTERVAL = """ SELECT server_type, COUNT(server_type) FROM visited WHERE
+                                         saved BETWEEN (?) AND (?) GROUP BY server_type """
