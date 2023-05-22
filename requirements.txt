@@ -1,4 +1,4 @@
 beautifulsoup4==4.9.1
 litecli==1.3.2
-requests==2.23.0
+requests==2.31.0
 SQLAlchemy==1.3.17
